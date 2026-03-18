@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Castelli AG Luzern – Website
 
-## Getting Started
+Moderne, produktionsreife Website für die Castelli AG Luzern, Malerunternehmen in dritter Generation seit 1947.
 
-First, run the development server:
+## Tech Stack
+
+- **Next.js 16** (App Router)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS**
+- **shadcn/ui**
+- **Framer Motion**
+- **lucide-react**
+
+## Schnellstart
 
 ```bash
+cd maler-castelli-site
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Öffnen Sie [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment (Vercel)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Repository mit Vercel verbinden
+2. `maler-castelli-site` als Root-Verzeichnis verwenden (oder Projekt in Root verschieben)
+3. Build-Command: `npm run build`
+4. Output-Verzeichnis: `.next`
 
-## Learn More
+Alternativ über CLI:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+cd maler-castelli-site
+npx vercel
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Projektstruktur
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+maler-castelli-site/
+├── src/
+│   ├── app/              # App Router (Seiten)
+│   ├── components/       # Wiederverwendbare Komponenten
+│   │   ├── layout/       # Header, Footer
+│   │   ├── sections/     # Sektions-Komponenten
+│   │   └── ui/           # shadcn UI
+│   ├── data/             # Business-Daten (business.ts)
+│   └── lib/              # Utilities
+├── public/
+│   └── images/           # Bilder (siehe images/README.md)
+└── next.config.ts
+```
 
-## Deploy on Vercel
+## Inhalte anpassen
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Alle geschäftlichen Daten (Kontakt, Leistungen, Öffnungszeiten etc.) stehen zentral in:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**`src/data/business.ts`**
+
+Änderungen dort wirken sich auf die gesamte Website aus.
+
+## Bilder von der bestehenden Website
+
+Die aktuelle Website unter https://www.malercastelli.ch enthält Bilder, die übernommen werden können. Siehe `public/images/README.md` für Anweisungen.
+
+## Platzhalter & spätere Anpassungen
+
+- **Formular**: Das Kontaktformular ist für Anbindung an E-Mail, CRM oder Formhandler (z.B. Formspree, Resend) vorbereitet. Siehe `ContactSection.tsx`.
+- **Bilder**: Die About-Sektion verwendet einen Platzhalter. Echte Bilder können in `public/images/` abgelegt oder über `business.ts` → `images` referenziert werden.
+- **Impressum/Datenschutz**: Verweisen aktuell auf die bestehende Website. Bei Bedarf eigene Seiten anlegen.
+
+## Lizenz
+
+Projekt für Castelli AG Luzern.
