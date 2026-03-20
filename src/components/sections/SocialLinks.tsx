@@ -16,19 +16,22 @@ const socials = [
     href: "https://www.instagram.com/malercastelli.ch/",
     label: "Instagram",
     icon: Instagram,
-    color: "hover:text-[#E4405F] hover:bg-[#E4405F]/10",
+    styles:
+      "text-[#E4405F] bg-[#E4405F]/10 border-[#E4405F]/35 hover:bg-[#E4405F]/20 hover:border-[#E4405F]/50",
   },
   {
     href: "https://www.linkedin.com/company/castelli-ag-luzern/",
     label: "LinkedIn",
     icon: Linkedin,
-    color: "hover:text-[#0A66C2] hover:bg-[#0A66C2]/10",
+    styles:
+      "text-[#0A66C2] bg-[#0A66C2]/10 border-[#0A66C2]/35 hover:bg-[#0A66C2]/20 hover:border-[#0A66C2]/50",
   },
   {
     href: "https://api.whatsapp.com/send/?phone=41412406010&text&type=phone_number&app_absent=0",
     label: "WhatsApp",
     icon: WhatsAppIcon,
-    color: "hover:text-[#25D366] hover:bg-[#25D366]/10",
+    styles:
+      "text-[#25D366] bg-[#25D366]/10 border-[#25D366]/35 hover:bg-[#25D366]/20 hover:border-[#25D366]/50",
   },
 ];
 
@@ -47,14 +50,14 @@ export function SocialLinks() {
             Folgen Sie uns
           </h2>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 w-full max-w-md sm:max-w-none sm:w-auto mx-auto">
-            {socials.map(({ href, label, icon: Icon, color }) => (
+            {socials.map(({ href, label, icon: Icon, styles }) => (
               <motion.a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className={`flex items-center justify-center gap-3 rounded-xl border border-border bg-background px-5 py-4 min-h-[52px] text-muted-foreground transition-all touch-manipulation ${color}`}
+                className={`flex items-center justify-center gap-3 rounded-xl border-2 px-5 py-4 min-h-[52px] transition-colors touch-manipulation ${styles}`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

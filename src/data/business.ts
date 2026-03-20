@@ -72,7 +72,7 @@ const serviceImages: Record<string, string[]> = {
   innen: [
     img("innere malerarbeiten", "0c17cf77-c20b-477a-a0f5-267c522122de.jpg.avif"),
     img("innere malerarbeiten", "23263259-e6a9-4497-a9bc-bc0ad8ac7822.jpg.avif"),
-    img("innere malerarbeiten", "3c2b3ffe-0c1d-4244-8e33-75e6f5d9d682.jpg.avif"),
+    img("innere malerarbeiten", "3fa56925-4119-4697-bbce-73e2568f5535.jpg.avif"),
     img("innere malerarbeiten", "57707f69-d7fe-4d1d-91d3-049049a3d37f.jpg.avif"),
     img("innere malerarbeiten", "86bdbe23-6782-4c6c-b0b7-ea8a0ab485f4.jpg.avif"),
     img("innere malerarbeiten", "f747a1c0-c35e-4ac7-897d-3fbe48115288.jpg.avif"),

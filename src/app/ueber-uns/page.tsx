@@ -1,8 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { business } from "@/data/business";
-import { buttonVariants } from "@/lib/button-variants";
 import { PageHero } from "@/components/sections/PageHero";
 import { UeberUnsContent } from "./UeberUnsContent";
 

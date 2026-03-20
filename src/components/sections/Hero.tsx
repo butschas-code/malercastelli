@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { buttonVariants } from "@/lib/button-variants";
+import { GlowingCTAButton } from "@/components/ui/GlowingCTAButton";
 import { business, images } from "@/data/business";
-import { ArrowRight, Palette } from "lucide-react";
+import { Palette } from "lucide-react";
 
 export function Hero() {
   return (
@@ -69,18 +68,14 @@ export function Hero() {
             className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
           >
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-              <Link href="/dienstleistungen" className={`group flex items-center justify-center min-h-[48px] w-full sm:w-auto ${buttonVariants({ size: "lg" })}`}>
+              <GlowingCTAButton href="/dienstleistungen" size="lg" showArrow wrapperClassName="w-full sm:w-max">
                 Unsere Dienstleistungen
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </GlowingCTAButton>
             </motion.div>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-              <Link
-                href="/kontakt"
-                className={`flex items-center justify-center min-h-[48px] w-full sm:w-auto ${buttonVariants({ variant: "outline", size: "lg" })} border-white/50 bg-white/5 text-white backdrop-blur-sm hover:bg-white/15 hover:border-white/70`}
-              >
+              <GlowingCTAButton href="/kontakt" size="lg" wrapperClassName="w-full sm:w-max">
                 Kostenlose Offerte
-              </Link>
+              </GlowingCTAButton>
             </motion.div>
           </motion.div>
         </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { services } from "@/data/business";
-import { buttonVariants } from "@/lib/button-variants";
+import { GlowingCTAButton } from "@/components/ui/GlowingCTAButton";
 import { ArrowRight } from "lucide-react";
 
 const container = {
@@ -106,13 +106,15 @@ export function ServicesPreview() {
           className="mt-14 text-center"
         >
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Link
+            <GlowingCTAButton
               href="/dienstleistungen"
-              className={`inline-flex items-center ${buttonVariants({ variant: "outline", size: "lg" })}`}
+              size="lg"
+              variant="surface"
+              showArrow
+              wrapperClassName="mx-auto"
             >
               Alle Dienstleistungen im Detail
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </GlowingCTAButton>
           </motion.div>
         </motion.div>
       </div>

@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { business } from "@/data/business";
-import { buttonVariants } from "@/lib/button-variants";
+import { GlowingCTAButton } from "@/components/ui/GlowingCTAButton";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -27,10 +28,17 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link
           href="/"
-          className="flex items-center gap-2 font-bold text-lg tracking-tight transition-opacity hover:opacity-80"
+          className="flex shrink-0 items-center transition-opacity hover:opacity-80"
+          aria-label={`${business.name} – Startseite`}
         >
-          {business.shortName}
-          <span className="font-normal text-muted-foreground">AG Luzern</span>
+          <Image
+            src="/castelli-logo.png"
+            alt={business.name}
+            width={633}
+            height={193}
+            className="h-9 w-auto max-w-[11rem] object-contain object-left sm:h-10 sm:max-w-[13.5rem]"
+            priority
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -45,9 +53,9 @@ export function Header() {
             </Link>
           ))}
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-            <Link href="/kontakt" className={buttonVariants({ size: "sm" })}>
+            <GlowingCTAButton href="/kontakt" size="sm">
               Anfrage stellen
-            </Link>
+            </GlowingCTAButton>
           </motion.div>
         </nav>
 
@@ -94,13 +102,14 @@ export function Header() {
                 transition={{ delay: 0.2 }}
                 className="mt-2"
               >
-                <Link
+                <GlowingCTAButton
                   href="/kontakt"
+                  size="md"
+                  wrapperClassName="w-full sm:w-max mx-auto"
                   onClick={() => setMobileOpen(false)}
-                  className={`block text-center py-4 min-h-[48px] ${buttonVariants()}`}
                 >
                   Anfrage stellen
-                </Link>
+                </GlowingCTAButton>
               </motion.div>
             </nav>
           </motion.div>

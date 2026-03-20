@@ -9,6 +9,11 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        /** Brand CTA – solid */
+        cta: "bg-[#0295d5] text-white shadow-sm hover:bg-[#0280c2] focus-visible:ring-2 focus-visible:ring-[#0295d5]/40",
+        /** Brand CTA – outline (on light backgrounds) */
+        ctaOutline:
+          "border-2 border-[#0295d5] bg-transparent text-[#0295d5] hover:bg-[#0295d5]/10",
         outline: "border border-input bg-background hover:bg-muted hover:text-muted-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
       },

@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { business } from "@/data/business";
-import { buttonVariants } from "@/lib/button-variants";
+import { GlowingCTAButton } from "@/components/ui/GlowingCTAButton";
 import { Building2, Users, MapPin } from "lucide-react";
 
 export function UeberUnsContent() {
@@ -91,13 +90,13 @@ export function UeberUnsContent() {
                         <li key={role}>{role}</li>
                       ))}
                     </ul>
-                    <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                      <Link href="/kontakt" className={buttonVariants({ size: "sm" })}>
+                    <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:items-start">
+                      <GlowingCTAButton href="/kontakt" size="sm">
                         Kontakt aufnehmen
-                      </Link>
-                      <Link href="/dienstleistungen" className={buttonVariants({ variant: "outline", size: "sm" })}>
+                      </GlowingCTAButton>
+                      <GlowingCTAButton href="/dienstleistungen" size="sm" variant="surface">
                         Unsere Leistungen
-                      </Link>
+                      </GlowingCTAButton>
                     </div>
                   </div>
                 </div>

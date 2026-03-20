@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { GlowingCTAButton } from "@/components/ui/GlowingCTAButton";
 
 interface ContactSectionProps {
   compact?: boolean;
@@ -16,9 +16,9 @@ export function ContactSection({ compact }: ContactSectionProps = {}) {
   const { contact, hours } = business;
 
   return (
-    <section className="py-14 sm:py-20 md:py-28 bg-muted/30">
+    <section className="py-8 md:py-10 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -159,9 +159,9 @@ function ContactForm() {
         </a>
         .
       </p>
-      <Button type="submit" className="w-full min-h-[48px] rounded-lg touch-manipulation">
+      <GlowingCTAButton type="submit" size="md" wrapperClassName="w-full sm:w-max touch-manipulation">
         Absenden
-      </Button>
+      </GlowingCTAButton>
     </form>
   );
 }

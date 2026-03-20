@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { services } from "@/data/business";
-import { buttonVariants } from "@/lib/button-variants";
+import { GlowingCTAButton } from "@/components/ui/GlowingCTAButton";
 import { PageHero } from "@/components/sections/PageHero";
 
 export function DienstleistungenContent() {
@@ -113,9 +112,9 @@ export function DienstleistungenContent() {
             className="mt-16 sm:mt-24 text-center px-2"
           >
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-              <Link href="/kontakt" className={`inline-flex justify-center min-h-[48px] w-full sm:w-auto ${buttonVariants({ size: "lg" })}`}>
+              <GlowingCTAButton href="/kontakt" size="lg" wrapperClassName="w-full sm:w-max mx-auto">
                 Unverbindliche Offerte anfragen
-              </Link>
+              </GlowingCTAButton>
             </motion.div>
           </motion.div>
         </div>

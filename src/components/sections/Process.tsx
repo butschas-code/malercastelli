@@ -45,7 +45,7 @@ const stepVariants = {
 
 export function Process() {
   return (
-    <section className="relative py-20 md:py-28 bg-muted/30 overflow-hidden">
+    <section className="relative py-8 md:py-10 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,7 +70,7 @@ export function Process() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
         >
           {steps.map((step, i) => {
             const Icon = step.icon;

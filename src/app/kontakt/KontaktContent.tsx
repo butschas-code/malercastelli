@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { GlowingCTAButton } from "@/components/ui/GlowingCTAButton";
 
 export function KontaktContent() {
   const { contact, hours } = business;
@@ -138,9 +138,9 @@ export function KontaktContent() {
                   </a>
                   .
                 </p>
-                <Button type="submit" size="lg" className="w-full sm:w-auto min-h-[48px] rounded-lg touch-manipulation">
+                <GlowingCTAButton type="submit" size="lg" wrapperClassName="w-full sm:w-max touch-manipulation">
                   Nachricht absenden
-                </Button>
+                </GlowingCTAButton>
               </form>
             </div>
           </motion.div>

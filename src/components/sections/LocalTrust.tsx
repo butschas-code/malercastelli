@@ -6,9 +6,9 @@ import { business } from "@/data/business";
 
 export function LocalTrust() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-8 md:py-10">
       <div className="container mx-auto px-4">
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
