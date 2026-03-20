@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { business } from "@/data/business";
+import Image from "next/image";
+import { business, images } from "@/data/business";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
@@ -10,8 +11,16 @@ export function Footer() {
       <div className="container mx-auto px-4 py-10 sm:py-12 md:py-16">
         <div className="grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-semibold text-lg">{business.name}</p>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <Link href="/" className="inline-block group" aria-label={`${business.name} – Startseite`}>
+              <Image
+                src={images.logo}
+                alt={business.name}
+                width={633}
+                height={193}
+                className="h-14 w-auto object-contain object-left transition-opacity hover:opacity-90"
+              />
+            </Link>
+            <p className="mt-4 text-sm text-muted-foreground">
               Malerarbeiten mit Präzision und Leidenschaft – seit {business.founded}
             </p>
           </div>
@@ -72,24 +81,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="https://www.malercastelli.ch/impressum"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <Link href="/impressum" className="text-muted-foreground hover:text-foreground transition-colors">
                   Impressum
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="https://www.malercastelli.ch/datenschutz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <Link href="/datenschutz" className="text-muted-foreground hover:text-foreground transition-colors">
                   Datenschutz
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

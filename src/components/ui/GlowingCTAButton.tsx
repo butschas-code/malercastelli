@@ -23,33 +23,8 @@ const iconSizes = {
   lg: "h-5 w-5",
 } as const;
 
-/** Full 360° conic with two blues (no deg syntax quirks in all engines) */
-const CONIC_BG =
-  "conic-gradient(from 0deg, #202d86 0%, #0295d5 33%, #202d86 66%, #0295d5 100%)";
-
-function RotatingConicRing({ paused }: { paused: boolean }) {
-  return (
-    <span
-      className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center overflow-hidden rounded-[inherit]"
-      aria-hidden
-    >
-      <motion.span
-        className="aspect-square w-[260%] max-w-none shrink-0 rounded-none"
-        style={{ background: CONIC_BG }}
-        animate={paused ? { rotate: 0 } : { rotate: 360 }}
-        transition={
-          paused
-            ? { duration: 0 }
-            : {
-                duration: 3,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "linear",
-              }
-        }
-      />
-    </span>
-  );
-}
+const glowRest = "drop-shadow(0 0 8px rgba(67,147,208,0.35)) drop-shadow(0 0 18px rgba(67,147,208,0.2))";
+const glowMid  = "drop-shadow(0 0 12px rgba(67,147,208,0.55)) drop-shadow(0 0 28px rgba(67,147,208,0.32))";
 
 export type GlowingCTAButtonProps = {
   children: React.ReactNode;
@@ -63,17 +38,10 @@ export type GlowingCTAButtonProps = {
   wrapperClassName?: string;
   onClick?: () => void;
   disabled?: boolean;
+  /** Show faint blue glow – use on primary "Offerte" CTAs only */
+  glow?: boolean;
 };
 
-const glowRest =
-  "drop-shadow(0 0 10px rgba(2,149,213,0.5)) drop-shadow(0 0 24px rgba(32,45,134,0.4))";
-const glowMid =
-  "drop-shadow(0 0 16px rgba(2,149,213,0.7)) drop-shadow(0 0 34px rgba(32,45,134,0.55))";
-
-/**
- * Glowing CTA: Framer Motion rotates the conic (avoids CSS transform bugs with Tailwind).
- * Pulsing outer glow via filter drop-shadow.
- */
 export function GlowingCTAButton({
   children,
   href,
@@ -86,6 +54,7 @@ export function GlowingCTAButton({
   wrapperClassName,
   onClick,
   disabled,
+  glow = false,
 }: GlowingCTAButtonProps) {
   const reduceMotion = useReducedMotion();
   const isHttp =
@@ -94,38 +63,30 @@ export function GlowingCTAButton({
   const useNativeAnchor = external || isHttp || isSpecial;
 
   const shellClass = cn(
-    "relative z-10 inline-flex min-w-0 max-w-full items-stretch overflow-hidden rounded-full",
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0295d5] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    "relative z-10 inline-flex min-w-0 max-w-full items-center justify-center rounded-full",
+    "",
+    "bg-[#232d82] text-white",
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4393d0] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    "transition-colors hover:bg-[#1c2470]",
     "w-full sm:w-auto",
+    "gap-2 text-sm font-medium",
     heights[size],
+    innerPadding[size],
     disabled && "pointer-events-none opacity-50",
     className
   );
 
-  const innerSurface = cn(
-    "relative z-[2] flex min-h-0 min-w-0 flex-1 items-center justify-center gap-2 rounded-full py-1 text-sm font-medium transition-colors",
-    "m-[3px]",
-    innerPadding[size],
-    variant === "solid"
-      ? "cursor-pointer bg-slate-950 text-white group-hover:bg-slate-900/90"
-      : "cursor-pointer bg-background text-foreground shadow-sm group-hover:bg-muted/90"
-  );
+  const arrow = showArrow ? (
+    <ArrowRight
+      className={cn(iconSizes[size], "shrink-0 transition-transform group-hover:translate-x-1")}
+      aria-hidden
+    />
+  ) : null;
 
-  const layers = (
+  const inner = (
     <>
-      <RotatingConicRing paused={!!reduceMotion} />
-      <span className={innerSurface}>
-        {children}
-        {showArrow ? (
-          <ArrowRight
-            className={cn(
-              iconSizes[size],
-              "shrink-0 transition-transform group-hover:translate-x-1"
-            )}
-            aria-hidden
-          />
-        ) : null}
-      </span>
+      {children}
+      {arrow}
     </>
   );
 
@@ -137,17 +98,25 @@ export function GlowingCTAButton({
       rel={isHttp ? "noopener noreferrer" : undefined}
       target={isHttp ? "_blank" : undefined}
     >
-      {layers}
+      {inner}
     </a>
   ) : href != null ? (
     <Link href={href} className={shellClass} onClick={onClick}>
-      {layers}
+      {inner}
     </Link>
   ) : (
     <button type={type} className={shellClass} onClick={onClick} disabled={disabled}>
-      {layers}
+      {inner}
     </button>
   );
+
+  if (!glow) {
+    return (
+      <div className={cn("group relative w-full sm:w-max", wrapperClassName)}>
+        {interactive}
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -156,26 +125,14 @@ export function GlowingCTAButton({
       animate={
         reduceMotion
           ? {}
-          : {
-              filter: [glowRest, glowMid, glowRest],
-            }
+          : { filter: [glowRest, glowMid, glowRest] }
       }
       transition={
         reduceMotion
           ? {}
-          : {
-              duration: 2.5,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }
+          : { duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }
       }
-      whileHover={
-        reduceMotion
-          ? {}
-          : {
-              filter: glowMid,
-            }
-      }
+      whileHover={reduceMotion ? {} : { filter: glowMid }}
     >
       {interactive}
     </motion.div>

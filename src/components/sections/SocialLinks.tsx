@@ -47,7 +47,7 @@ export function SocialLinks() {
           className="flex flex-col items-center gap-8"
         >
           <h2 className="text-xl font-semibold tracking-tight sm:text-2xl text-center">
-            Folgen Sie uns
+            Folgen oder kontaktieren Sie uns
           </h2>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 w-full max-w-md sm:max-w-none sm:w-auto mx-auto">
             {socials.map(({ href, label, icon: Icon, styles }) => (

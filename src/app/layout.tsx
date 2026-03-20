@@ -64,7 +64,7 @@ export default function RootLayout({
     <html lang="de">
       <body className={`${syne.variable} ${dmSans.variable} font-sans antialiased`}>
         <Header />
-        <main className="min-h-screen">
+        <main className="min-h-screen pt-[8.5rem]">
           {children}
           <SocialLinks />
         </main>

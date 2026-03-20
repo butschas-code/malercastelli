@@ -227,7 +227,7 @@ export const faqs = [
 export const images = {
   hero: "/images/Kontakt/header.jpg",
   about: "/images/58c231be-418a-4685-a8b2-ab43de29d60f.jpg.avif",
-  logo: "/images/logo.avif",
+  logo: "/images/logo_castelli1.png",
   /** Edgy section backgrounds for home page */
   bgEdgy1: "/images/Speziallackierung/a4a8ed40-8508-47b5-931a-99d774a219c3.jpg.avif",
   bgEdgy2: "/images/innere malerarbeiten/86bdbe23-6782-4c6c-b0b7-ea8a0ab485f4.jpg.avif",

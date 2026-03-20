@@ -90,7 +90,7 @@ export function Process() {
                 <h3 className="mt-5 font-bold">{step.title}</h3>
                 <p className="mt-3 text-sm text-muted-foreground max-w-[220px]">{step.description}</p>
                 {i < steps.length - 1 && (
-                  <div className="absolute top-7 left-[calc(50%+36px)] hidden h-0.5 w-[calc(100%-72px)] lg:block">
+                  <div className="absolute top-7 left-[calc(50%+28px)] hidden h-0.5 w-[calc(100%-24px)] lg:block">
                     <motion.div
                       className="h-full bg-primary/30"
                       initial={{ scaleX: 0 }}

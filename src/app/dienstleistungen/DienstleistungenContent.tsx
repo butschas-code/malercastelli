@@ -41,7 +41,7 @@ export function DienstleistungenContent() {
               <motion.article
                 key={service.id}
                 id={service.id}
-                className="scroll-mt-24 sm:scroll-mt-28"
+                className="scroll-mt-32 sm:scroll-mt-40"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
@@ -112,7 +112,7 @@ export function DienstleistungenContent() {
             className="mt-16 sm:mt-24 text-center px-2"
           >
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-              <GlowingCTAButton href="/kontakt" size="lg" wrapperClassName="w-full sm:w-max mx-auto">
+              <GlowingCTAButton href="/offerte-anfragen" size="lg" wrapperClassName="w-full sm:w-max mx-auto" glow>
                 Unverbindliche Offerte anfragen
               </GlowingCTAButton>
             </motion.div>

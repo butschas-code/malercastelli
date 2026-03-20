@@ -14,7 +14,7 @@ interface PageHeroProps {
 
 export function PageHero({ label, title, description, image, imageAlt, children }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden min-h-[50vh] sm:min-h-[55vh] flex items-center">
+    <section className="relative overflow-hidden -mt-[8.5rem] min-h-[50vh] sm:min-h-[55vh] flex items-center">
       <div className="absolute inset-0">
         <motion.div
           initial={{ scale: 1.08 }}

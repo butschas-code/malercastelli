@@ -8,7 +8,7 @@ import { Palette } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[75svh] sm:min-h-[80vh] md:min-h-[85vh] flex items-center">
+    <section className="relative overflow-hidden -mt-[8.5rem] min-h-[75svh] sm:min-h-[80vh] md:min-h-[85vh] flex items-center">
       <div className="absolute inset-0">
         <motion.div
           initial={{ scale: 1.05 }}
@@ -73,8 +73,8 @@ export function Hero() {
               </GlowingCTAButton>
             </motion.div>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-              <GlowingCTAButton href="/kontakt" size="lg" wrapperClassName="w-full sm:w-max">
-                Kostenlose Offerte
+              <GlowingCTAButton href="/offerte-anfragen" size="lg" wrapperClassName="w-full sm:w-max" glow>
+                Offerte anfragen
               </GlowingCTAButton>
             </motion.div>
           </motion.div>
